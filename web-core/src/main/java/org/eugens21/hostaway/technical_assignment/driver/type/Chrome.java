@@ -11,6 +11,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.concurrent.TimeUnit;
+
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class Chrome implements ConfigurableWebDriver {
 
@@ -28,7 +30,10 @@ public class Chrome implements ConfigurableWebDriver {
     @Override
     public WebDriver get() {
         webDriverManager.setup();
-        return new ChromeDriver(driverOptions);
+        ChromeDriver chromeDriver = new ChromeDriver(driverOptions);
+        chromeDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        chromeDriver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        return chromeDriver;
     }
 
 }

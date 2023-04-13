@@ -2,17 +2,19 @@ pages:
   mainUrl: https://kamil-demo.alpinizm.uz/
   common:
     datePicker:
+      monthValue: //div[contains(@class,'sc-dtLLSn')]
+      dateToPick: //div[contains(@class,'CalendarDay') and text() = %d and not (@disabled)]
       currentMonth:
-        self: XPATH@//div[contains(@class,'sc-euEtCV')][1]
-        value: XPATH@//div[contains(@class,'sc-dtLLSn')]
-        dateToPick: //div[contains(@class,'CalendarDay') and text() = %s and not (@disabled)]
+        self: //div[contains(@class,'sc-euEtCV')][1]
+        value: XPATH@${pages.common.datePicker.currentMonth.self}${pages.common.datePicker.monthValue}
+        dateToPick: ${pages.common.datePicker.currentMonth.self}${pages.common.datePicker.dateToPick}
       futureMonth:
-        self: XPATH@//div[contains(@class,'sc-euEtCV')][2]
-        value: ${pages.common.datePicker.currentMonth.value}
-        dateToPick: ${pages.common.datePicker.currentMonth.dateToPick}
+        self: //div[contains(@class,'sc-euEtCV')][2]
+        value: XPATH@${pages.common.datePicker.futureMonth.self}${pages.common.datePicker.monthValue}
+        dateToPick: ${pages.common.datePicker.futureMonth.self}${pages.common.datePicker.dateToPick}
       clearDates: XPATH@//button[contains(span, 'Clear dates')]
-      previousMonth: XPATH@//button[contains(@class,'sc-giAqHp')]
-      nextMonth: XPATH@//button[contains(@class,'sc-giAqHp')]
+      previousMonth: XPATH@//button[ancestor::div[contains(@class,'sc-fmdNqN')] and @color='secondary']
+      nextMonth: XPATH@//button[ancestor::div[contains(@class,'sc-ljsmAU')]  and @color='secondary']
   header:
     self: XPATH@//header
     allListings: XPATH@//nav//a[contains(text(), 'All listings')]

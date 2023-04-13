@@ -2,9 +2,11 @@ package org.eugens21.hostaway.technical_assignment.test.filter;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
-import org.eugens21.hostaway.technical_assignment.WebCoreConfiguration;
-import org.eugens21.hostaway.technical_assignment.driver.WebDriversFactory;
-import org.junit.jupiter.api.BeforeAll;
+import org.assertj.core.api.SoftAssertions;
+import org.eugens21.hostaway.technical_assignment.WebTestsBaseClass;
+import org.eugens21.hostaway.technical_assignment.pages.HomePage;
+import org.eugens21.hostaway.technical_assignment.service.RandomDateGeneratorService;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 
-@SpringBootTest(classes = WebCoreConfiguration.class)
+@FieldDefaults(level = AccessLevel.PROTECTED)
+@SpringBootTest(classes = WebTestsBaseClass.class)
+@DirtiesContext
 public abstract class AbstractTest {
 
 //	Please provide automation tests forhttps://kamil-demo.alpinizm.uz/ using Selenide (or Selenium), Allure, Java 11, JUnit or TestNG (without Cucumber) which will do the following:
@@ -24,14 +28,33 @@ public abstract class AbstractTest {
 //			We expect to see the usage of AAA, POM, tests should be developed using method chaining (page object in fluent style).
 
     @Autowired
+    HomePage homePage;
+    @Autowired
+    RandomDateGeneratorService randomDateGeneratorService;
+    SoftAssertions softAssertions;
+    @Autowired
     WebDriver webDriver;
     @Value("${pages.mainUrl}")
     String mainUrl;
+
+    @BeforeEach
+    public void doInitAssert() {
+        softAssertions = new SoftAssertions();
+    }
 
     @BeforeEach
     public void navigateToMainUrl() {
         webDriver.get(mainUrl);
     }
 
+    @AfterEach
+    public void doCloseDriver() {
+        webDriver.quit();
+    }
+
+    @AfterEach
+    public void doAssertAll() {
+        softAssertions.assertAll();
+    }
 
 }
