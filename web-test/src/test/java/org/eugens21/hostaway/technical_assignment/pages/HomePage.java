@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.eugens21.hostaway.technical_assignment.configuration.AbstractPageDependencies;
 import org.eugens21.hostaway.technical_assignment.model.SearchPropertiesCriteria;
-import org.eugens21.hostaway.technical_assignment.nested_elements.SearchForm;
+import org.eugens21.hostaway.technical_assignment.nested_elements.search.SearchForm;
 import org.eugens21.hostaway.technical_assignment.service.SearchPropertiesMapperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

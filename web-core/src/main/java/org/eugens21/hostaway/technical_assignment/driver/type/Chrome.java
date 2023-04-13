@@ -33,6 +33,7 @@ public class Chrome implements ConfigurableWebDriver {
         ChromeDriver chromeDriver = new ChromeDriver(driverOptions);
         chromeDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         chromeDriver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        chromeDriver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
         return chromeDriver;
     }
 

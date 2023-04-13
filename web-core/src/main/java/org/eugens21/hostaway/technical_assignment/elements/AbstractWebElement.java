@@ -32,6 +32,10 @@ public abstract class AbstractWebElement {
         return getWebElement().getText();
     }
 
+    public String getAttribute(String attribute) {
+        return getWebElement().getAttribute(attribute);
+    }
+
     public boolean isVisible() {
         return getWebElement().isDisplayed();
     }

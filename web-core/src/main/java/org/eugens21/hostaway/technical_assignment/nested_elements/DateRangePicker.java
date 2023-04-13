@@ -4,7 +4,6 @@ import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.Button;
 import org.eugens21.hostaway.technical_assignment.properties.locators.common.DatePickerProperties;
-import org.eugens21.hostaway.technical_assignment.service.DateRangePickerService;
 import org.openqa.selenium.WebDriver;
 
 import java.time.LocalDate;
@@ -12,9 +11,6 @@ import java.time.YearMonth;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class DateRangePicker {
-
-
-    DateRangePickerService dateRangePickerService = null;
 
     DateRangeMonthPicker currentMonth;
     DateRangeMonthPicker futureMonth;
