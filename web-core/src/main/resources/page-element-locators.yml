@@ -1,0 +1,44 @@
+pages:
+  mainUrl: https://kamil-demo.alpinizm.uz/
+  common:
+    datePicker:
+      currentMonth:
+        self: XPATH@//div[contains(@class,'sc-euEtCV')][1]
+        value: XPATH@//div[contains(@class,'sc-dtLLSn')]
+        dateToPick: //div[contains(@class,'CalendarDay') and text() = %s and not (@disabled)]
+      futureMonth:
+        self: XPATH@//div[contains(@class,'sc-euEtCV')][2]
+        value: ${pages.common.datePicker.currentMonth.value}
+        dateToPick: ${pages.common.datePicker.currentMonth.dateToPick}
+      clearDates: XPATH@//button[contains(span, 'Clear dates')]
+      previousMonth: XPATH@//button[contains(@class,'sc-giAqHp')]
+      nextMonth: XPATH@//button[contains(@class,'sc-giAqHp')]
+  header:
+    self: XPATH@//header
+    allListings: XPATH@//nav//a[contains(text(), 'All listings')]
+  home:
+    url: https://kamil-demo.alpinizm.uz/
+    searchForm:
+      self: XPATH@//div[contains(@class,'sc-ByBTK')]
+      details:
+        location:
+          self: XPATH@//div[contains(text(),'Location')]
+        checkIn:  XPATH@//div[contains(text(),'Check-in')]
+        checkOut: XPATH@//div[contains(text(),'Check-out')]
+        guests:
+          self: XPATH@//div[contains(text(),'Guests')]
+        search: XPATH@//button[contains(span, 'Search')]
+      amenities:
+        airConditioning: XPATH@//span[contains(text(),'Air')]
+        breakfast: XPATH@//span[contains(text(),'Breakfast')]
+        checkInOneDayAhead: XPATH@//span[contains(text(),'24-hour')]
+        balcony: XPATH@//span[contains(text(),'Balcony')]
+        beachEssentials: XPATH@//span[contains(text(),'Beach essentials')]
+  search:
+    url: https://kamil-demo.alpinizm.uz/search
+  listings:
+    url: https://kamil-demo.alpinizm.uz/all-listings
+
+
+
+
