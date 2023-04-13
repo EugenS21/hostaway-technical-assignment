@@ -19,15 +19,13 @@ public class SearchForm {
         search = new Button(pageLocatorProperties.getHome().getSearchForm().getDetails().getSearch(), webDriver);
         checkIn = new Button(pageLocatorProperties.getHome().getSearchForm().getDetails().getCheckIn(), webDriver);
         checkOut = new Button(pageLocatorProperties.getHome().getSearchForm().getDetails().getCheckOut(), webDriver);
-//        dateRangePicker = new DateRangePicker(pageLocatorProperties.getCommon().getDatePicker(), webDriver);
-        dateRangePicker = null;
+        dateRangePicker = new DateRangePicker(pageLocatorProperties.getCommon().getDatePicker(), webDriver);
     }
 
     public void fill(SearchFormContent searchFormContent) {
         checkIn.click();
-        dateRangePicker.pickDate(searchFormContent.getCheckInDate());
-        checkOut.click();
-        dateRangePicker.pickDate(searchFormContent.getCheckOutDate());
+        dateRangePicker.pickStartDate(searchFormContent.getCheckInDate());
+        dateRangePicker.pickEndDate(searchFormContent.getCheckOutDate());
     }
 
     public void search() {

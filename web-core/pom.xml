@@ -22,6 +22,11 @@
             <artifactId>webdrivermanager</artifactId>
             <version>${web.driver.manager.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>${snakeyaml.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

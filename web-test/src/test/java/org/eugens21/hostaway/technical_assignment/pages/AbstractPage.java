@@ -26,4 +26,8 @@ public abstract class AbstractPage {
         return applicationContext.getBean(clazz);
     }
 
+    public String getCurrentPageUrl() {
+        return webDriver.getCurrentUrl();
+    }
+
 }
