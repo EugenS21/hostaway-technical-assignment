@@ -32,12 +32,12 @@ public class Toggle {
             return;
         while (!valueToSet.equals(getValue())) {
             while (getValue().compareTo(valueToSet) > 0) {
-                if (!decrease.isAccessible()) {
+                if (!decrease.isEnabled()) {
                     throw new IllegalToggleValueException(format(INVALID_TOGGLE_RANGE_VALUE, valueToSet, getValue()));
                 }
                 decrease.click();
             }
-            if (!increase.isAccessible()) {
+            if (!increase.isEnabled()) {
                 throw new IllegalToggleValueException(format(INVALID_TOGGLE_RANGE_VALUE, valueToSet, getValue()));
             }
             increase.click();

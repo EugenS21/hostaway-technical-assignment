@@ -12,7 +12,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
+
+import static java.time.temporal.ChronoUnit.SECONDS;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class Chrome implements ConfigurableWebDriver {
@@ -33,9 +35,9 @@ public class Chrome implements ConfigurableWebDriver {
         webDriverManager.setup();
         ChromeDriver chromeDriver = new ChromeDriver(driverOptions);
         chromeDriver.manage().window().setSize(new Dimension(1920, 1080));
-        chromeDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        chromeDriver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        chromeDriver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
+        chromeDriver.manage().timeouts().implicitlyWait(Duration.of(10, SECONDS));
+        chromeDriver.manage().timeouts().pageLoadTimeout(Duration.of(10, SECONDS));
+        chromeDriver.manage().timeouts().setScriptTimeout(Duration.of(10, SECONDS));
         return chromeDriver;
     }
 

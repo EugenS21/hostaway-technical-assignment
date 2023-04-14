@@ -1,4 +1,4 @@
-package org.eugens21.hostaway.technical_assignment.nested_elements.search;
+package org.eugens21.hostaway.technical_assignment.nested_elements.search.popup;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -7,8 +7,6 @@ import org.eugens21.hostaway.technical_assignment.elements.implemenetation.Butto
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.InputCheckBox;
 import org.eugens21.hostaway.technical_assignment.model.FilterCriteriaActualContent;
 import org.eugens21.hostaway.technical_assignment.model.FilterCriteriaExpectedContent;
-import org.eugens21.hostaway.technical_assignment.nested_elements.search.popup.Range;
-import org.eugens21.hostaway.technical_assignment.nested_elements.search.popup.Toggle;
 import org.eugens21.hostaway.technical_assignment.properties.locators.search_page.SearchPageToolbarFilterPopupProperties;
 import org.openqa.selenium.WebDriver;
 

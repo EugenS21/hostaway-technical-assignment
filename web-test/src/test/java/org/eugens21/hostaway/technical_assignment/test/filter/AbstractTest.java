@@ -5,7 +5,6 @@ import lombok.experimental.FieldDefaults;
 import org.assertj.core.api.SoftAssertions;
 import org.eugens21.hostaway.technical_assignment.WebTestsBaseClass;
 import org.eugens21.hostaway.technical_assignment.pages.HomePage;
-import org.eugens21.hostaway.technical_assignment.service.RandomDateGeneratorService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
@@ -27,8 +26,6 @@ public abstract class AbstractTest {
 
     @Autowired
     HomePage homePage;
-    @Autowired
-    RandomDateGeneratorService randomDateGeneratorService;
     SoftAssertions softAssertions;
     @Autowired
     WebDriver webDriver;

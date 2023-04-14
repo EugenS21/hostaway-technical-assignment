@@ -7,10 +7,11 @@ import org.eugens21.hostaway.technical_assignment.exceptions.IllegalToggleValueE
 import org.eugens21.hostaway.technical_assignment.exceptions.InvalidNumberValueException;
 import org.eugens21.hostaway.technical_assignment.model.FilterCriteria;
 import org.eugens21.hostaway.technical_assignment.model.FilterCriteriaActualContent;
-import org.eugens21.hostaway.technical_assignment.nested_elements.search.SearchPageFilterPopup;
+import org.eugens21.hostaway.technical_assignment.nested_elements.search.popup.SearchPageFilterPopup;
 import org.eugens21.hostaway.technical_assignment.pages.SearchPage;
 import org.eugens21.hostaway.technical_assignment.service.FilterCriteriaActualMapperService;
 import org.eugens21.hostaway.technical_assignment.service.FilterCriteriaExpectedMapperService;
+import org.eugens21.hostaway.technical_assignment.service.RandomDateGeneratorService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -70,11 +71,8 @@ public class SearchPageFilterTest extends AbstractTest {
 
     @BeforeEach
     public void goToFilter() {
-        var criteria = randomDateGeneratorService.generateRandomSearchPropertiesCriteria();
+        var criteria = RandomDateGeneratorService.get().generateRandomSearchPropertiesCriteria();
         SearchPage searchPage = homePage.withCriteria(criteria).searchProperties();
-//        FilterCriteria filterCriteria = randomDateGeneratorService.generateRandomFilterCriteria();
-//        FilterCriteriaExpectedContent filterContent = mapperService.map(filterCriteria);
-//        filterContent.setPrice(Range.between(BigDecimal.valueOf(19999), BigDecimal.valueOf(29999)));
         filter = searchPage.toolbar().filter();
     }
 
@@ -96,7 +94,7 @@ public class SearchPageFilterTest extends AbstractTest {
     public void verifyPriceNullValues() {
         var expectedResult = mapperService.map(FilterCriteria.builder().price(Range.between("0", "0")).build());
         softAssertions.assertThatThrownBy(() -> filter.byCriteria(expectedResult).get())
-                .describedAs("Expecting to have empty values on trying to set 0 to price tanges inputs")
+                .describedAs("Expecting to have empty values on trying to set 0 to price ranges inputs")
                 .isInstanceOf(InvalidNumberValueException.class)
                 .hasMessage("Can't parse numeric input empty value to a big decimal");
     }

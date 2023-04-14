@@ -6,11 +6,11 @@
     <parent>
         <groupId>org.eugens21</groupId>
         <artifactId>hostaway-technical-assignment</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>web-test</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
