@@ -12,10 +12,11 @@ import org.apache.commons.lang3.Range;
 @AllArgsConstructor
 public class FilterCriteria {
 
-    Range<?> price;
-    Integer beds;
-    Integer bedrooms;
-    Integer bathrooms;
+    @Builder.Default
+    Range<?> price = Range.between(500, 1000);
+    Integer beds = 0;
+    Integer bedrooms = 0;
+    Integer bathrooms = 0;
     Amenities amenities;
 
 }

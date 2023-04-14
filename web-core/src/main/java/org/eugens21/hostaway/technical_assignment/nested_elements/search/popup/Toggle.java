@@ -2,7 +2,7 @@ package org.eugens21.hostaway.technical_assignment.nested_elements.search.popup;
 
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.Button;
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.Span;
-import org.eugens21.hostaway.technical_assignment.exceptions.IllegalToggleValue;
+import org.eugens21.hostaway.technical_assignment.exceptions.IllegalToggleValueException;
 import org.eugens21.hostaway.technical_assignment.properties.locators.search_page.SearchPageToolbarFilterPopupSpecificationsToggleProperties;
 import org.openqa.selenium.WebDriver;
 
@@ -33,12 +33,12 @@ public class Toggle {
         while (!valueToSet.equals(getValue())) {
             while (getValue().compareTo(valueToSet) > 0) {
                 if (!decrease.isAccessible()) {
-                    throw new IllegalToggleValue(format(INVALID_TOGGLE_RANGE_VALUE, valueToSet, getValue()));
+                    throw new IllegalToggleValueException(format(INVALID_TOGGLE_RANGE_VALUE, valueToSet, getValue()));
                 }
                 decrease.click();
             }
             if (!increase.isAccessible()) {
-                throw new IllegalToggleValue(format(INVALID_TOGGLE_RANGE_VALUE, valueToSet, getValue()));
+                throw new IllegalToggleValueException(format(INVALID_TOGGLE_RANGE_VALUE, valueToSet, getValue()));
             }
             increase.click();
         }
