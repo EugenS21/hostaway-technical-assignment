@@ -1,9 +1,10 @@
-package org.eugens21.hostaway.technical_assignment.nested_elements;
+package org.eugens21.hostaway.technical_assignment.nested_elements.search;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.Button;
 import org.eugens21.hostaway.technical_assignment.model.SearchFormContent;
+import org.eugens21.hostaway.technical_assignment.nested_elements.DateRangePicker;
 import org.eugens21.hostaway.technical_assignment.properties.PageLocatorProperties;
 import org.openqa.selenium.WebDriver;
 

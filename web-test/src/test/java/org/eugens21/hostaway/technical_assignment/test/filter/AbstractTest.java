@@ -12,11 +12,9 @@ import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.DirtiesContext;
 
 @FieldDefaults(level = AccessLevel.PROTECTED)
 @SpringBootTest(classes = WebTestsBaseClass.class)
-@DirtiesContext
 public abstract class AbstractTest {
 
 //	Please provide automation tests forhttps://kamil-demo.alpinizm.uz/ using Selenide (or Selenium), Allure, Java 11, JUnit or TestNG (without Cucumber) which will do the following:

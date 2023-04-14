@@ -25,7 +25,7 @@ pages:
       details:
         location:
           self: XPATH@//div[contains(text(),'Location')]
-        checkIn:  XPATH@//div[contains(text(),'Check-in')]
+        checkIn: XPATH@//div[contains(text(),'Check-in')]
         checkOut: XPATH@//div[contains(text(),'Check-out')]
         guests:
           self: XPATH@//div[contains(text(),'Guests')]
@@ -38,6 +38,73 @@ pages:
         beachEssentials: XPATH@//span[contains(text(),'Beach essentials')]
   search:
     url: https://kamil-demo.alpinizm.uz/search
+    toolbar:
+      self: //div[contains(@class,'sc-kkmGkm')]
+      filter:
+        button: XPATH@${pages.search.toolbar.self}//button[contains(span,'Filter')]
+        popup:
+          common:
+            add: button[contains(@class,'fKwyEY')]
+            subtract: button[contains(@class,'sc-fIxmyt')]
+            input: preceding-sibling::input
+          self: //div[contains(@class,'sc-eHEENL')]
+          specifications:
+            self: ${pages.search.toolbar.filter.popup.self}//div[contains(@class,'sc-hzUIXc')]
+            price:
+              self: ${pages.search.toolbar.filter.popup.specifications.self}//div[text()='Price']/following-sibling::div
+              from: XPATH@${pages.search.toolbar.filter.popup.specifications.price.self}//input[@placeholder='From']
+              to: XPATH@${pages.search.toolbar.filter.popup.specifications.price.self}//input[@placeholder='To']
+            beds:
+              self: ${pages.search.toolbar.filter.popup.specifications.self}//div[text()='Beds']/following-sibling::div
+              value: XPATH@${pages.search.toolbar.filter.popup.specifications.beds.self}//span
+              add: XPATH@${pages.search.toolbar.filter.popup.specifications.beds.self}//${pages.search.toolbar.filter.popup.common.add}
+              subtract: XPATH@${pages.search.toolbar.filter.popup.specifications.beds.self}//${pages.search.toolbar.filter.popup.common.subtract}
+            bedrooms:
+              self: ${pages.search.toolbar.filter.popup.specifications.self}//div[text()='Bedrooms']/following-sibling::div
+              value: XPATH@${pages.search.toolbar.filter.popup.specifications.bedrooms.self}//span
+              add: XPATH@${pages.search.toolbar.filter.popup.specifications.bedrooms.self}//${pages.search.toolbar.filter.popup.common.add}
+              subtract: XPATH@${pages.search.toolbar.filter.popup.specifications.bedrooms.self}//${pages.search.toolbar.filter.popup.common.subtract}
+            bathrooms:
+              self: ${pages.search.toolbar.filter.popup.specifications.self}//div[text()='Bathrooms']/following-sibling::div
+              value: XPATH@${pages.search.toolbar.filter.popup.specifications.bathrooms.self}//span
+              add: XPATH@${pages.search.toolbar.filter.popup.specifications.bathrooms.self}//${pages.search.toolbar.filter.popup.common.add}
+              subtract: XPATH@${pages.search.toolbar.filter.popup.specifications.bathrooms.self}//${pages.search.toolbar.filter.popup.common.subtract}
+          amenities:
+            self: ${pages.search.toolbar.filter.popup.self}//div[contains(@class,'sc-jgPyTC beqNry')]
+            beachFront:
+              checkbox: XPATH@${pages.search.toolbar.filter.popup.amenities.self}//span[text()='Beach front']
+              value: ${pages.search.toolbar.filter.popup.amenities.beachFront.checkbox}/${pages.search.toolbar.filter.popup.common.input}
+            swimmingPool:
+              checkbox: XPATH@${pages.search.toolbar.filter.popup.amenities.self}//span[text()='Swimming pool']
+              value: ${pages.search.toolbar.filter.popup.amenities.swimmingPool.checkbox}/${pages.search.toolbar.filter.popup.common.input}
+            freeWiFi:
+              checkbox: XPATH@${pages.search.toolbar.filter.popup.amenities.self}//span[text()='Free WiFi']
+              value: ${pages.search.toolbar.filter.popup.amenities.freeWiFi.checkbox}/${pages.search.toolbar.filter.popup.common.input}
+            kitchen:
+              checkbox: XPATH@${pages.search.toolbar.filter.popup.amenities.self}//span[text()='Kitchen']
+              value: ${pages.search.toolbar.filter.popup.amenities.kitchen.checkbox}/${pages.search.toolbar.filter.popup.common.input}
+            airConditioning:
+              checkbox: XPATH@${pages.search.toolbar.filter.popup.amenities.self}//span[text()='Air conditioning']
+              value: ${pages.search.toolbar.filter.popup.amenities.airConditioning.checkbox}/${pages.search.toolbar.filter.popup.common.input}
+            washingMachine:
+              checkbox: XPATH@${pages.search.toolbar.filter.popup.amenities.self}//span[text()='Washing Machine']
+              value: ${pages.search.toolbar.filter.popup.amenities.washingMachine.checkbox}/${pages.search.toolbar.filter.popup.common.input}
+            petsAllowed:
+              checkbox: XPATH@${pages.search.toolbar.filter.popup.amenities.self}//span[text()='Pets allowed']
+              value: ${pages.search.toolbar.filter.popup.amenities.petsAllowed.checkbox}/${pages.search.toolbar.filter.popup.common.input}
+            hotTub:
+              checkbox: XPATH@${pages.search.toolbar.filter.popup.amenities.self}//span[text()='Hot tub']
+              value: ${pages.search.toolbar.filter.popup.amenities.hotTub.checkbox}/${pages.search.toolbar.filter.popup.common.input}
+            streetParking:
+              checkbox: XPATH@${pages.search.toolbar.filter.popup.amenities.self}//span[text()='Street parking']
+              value: ${pages.search.toolbar.filter.popup.amenities.streetParking.checkbox}/${pages.search.toolbar.filter.popup.common.input}
+            suitableForChildren:
+              checkbox: XPATH@${pages.search.toolbar.filter.popup.amenities.self}//span[text()='Suitable for children']
+              value: ${pages.search.toolbar.filter.popup.amenities.suitableForChildren.checkbox}/${pages.search.toolbar.filter.popup.common.input}
+          commands:
+            self: //div[contains(@class,'sc-jHcXXw')]
+            clearAll: XPATH@${pages.search.toolbar.filter.popup.commands.self}//b[contains(text(), 'Clear all')]
+            apply: XPATH@${pages.search.toolbar.filter.popup.commands.self}//button[contains(span,'Apply')]
   listings:
     url: https://kamil-demo.alpinizm.uz/all-listings
 
