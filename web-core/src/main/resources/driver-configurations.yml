@@ -2,4 +2,4 @@ driver:
   type: chrome
   capabilities:
     - --remote-allow-origins=*
-#    - --headless
+    - --headless
