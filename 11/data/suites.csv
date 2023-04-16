@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Apr 16 13:44:04 GMT 2023","Sun Apr 16 13:44:08 GMT 2023","3688","","org.eugens21.hostaway.technical_assignment.test.filter.HomePageSearchTest","","org.eugens21.hostaway.technical_assignment.test.filter.HomePageSearchTest","verifySearchOnHomePage","verifySearchOnHomePage()","As a user I need to be able to search properties by provided criteria"
