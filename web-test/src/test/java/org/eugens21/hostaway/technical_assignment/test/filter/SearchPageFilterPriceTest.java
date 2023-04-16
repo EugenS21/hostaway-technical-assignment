@@ -16,7 +16,7 @@ import org.springframework.test.annotation.DirtiesContext;
 
 import java.util.stream.Stream;
 
-public class SearchPageFilterAmenitiesTest extends AbstractTest {
+public class SearchPageFilterPriceTest extends AbstractTest {
 
     @Autowired
     FilterCriteriaExpectedMapperService mapperService;

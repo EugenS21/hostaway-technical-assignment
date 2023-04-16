@@ -1,6 +1,5 @@
 package org.eugens21.hostaway.technical_assignment.nested_elements.search.popup;
 
-import io.qameta.allure.Step;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.BoldText;
@@ -52,13 +51,11 @@ public class SearchPageFilterPopup {
         this.apply = new Button(popup.getCommands().getApply(), webDriver);
     }
 
-    @Step("Filling the pop-up with criteria")
     public SearchPageFilterPopup byCriteria(FilterCriteriaExpectedContent content) {
         doInParallel(content).join();
         return this;
     }
 
-    @Step("Reading pop-up content")
     public FilterCriteriaActualContent get() {
         return FilterCriteriaActualContent.builder()
                 .price(price.get().range())
@@ -78,12 +75,10 @@ public class SearchPageFilterPopup {
                 .build();
     }
 
-    @Step("Clicking on 'Clear All' button")
     public void clearAll() {
         clearAll.select();
     }
 
-    @Step("Clicking on 'Apply' button")
     public void apply() {
         apply.click();
     }

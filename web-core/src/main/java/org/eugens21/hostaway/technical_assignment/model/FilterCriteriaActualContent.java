@@ -18,5 +18,4 @@ public class FilterCriteriaActualContent extends AbstractFilterContent {
 
     Range<BigDecimal> price;
 
-
 }

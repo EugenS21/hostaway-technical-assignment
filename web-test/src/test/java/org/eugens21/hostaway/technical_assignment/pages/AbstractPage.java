@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.eugens21.hostaway.technical_assignment.configuration.AbstractPageDependencies;
+import org.eugens21.hostaway.technical_assignment.nested_elements.PageHeader;
 import org.eugens21.hostaway.technical_assignment.properties.PageLocatorProperties;
 import org.openqa.selenium.WebDriver;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +14,7 @@ import org.springframework.context.ApplicationContext;
 public abstract class AbstractPage {
 
     ApplicationContext applicationContext;
+    PageHeader header;
     PageLocatorProperties pageLocatorProperties;
     WebDriver webDriver;
 
@@ -20,6 +22,7 @@ public abstract class AbstractPage {
         this.applicationContext = dependencies.getApplicationContext();
         this.pageLocatorProperties = dependencies.getPageLocatorProperties();
         this.webDriver = dependencies.getWebDriver();
+        this.header = new PageHeader(pageLocatorProperties.getHeader(), webDriver);
     }
 
     protected <T> T getPage(Class<T> clazz) {

@@ -113,16 +113,6 @@
                     <reportVersion>${allure-junit5.version}</reportVersion>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                    </argLine>
-                    <forkCount>4</forkCount>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 

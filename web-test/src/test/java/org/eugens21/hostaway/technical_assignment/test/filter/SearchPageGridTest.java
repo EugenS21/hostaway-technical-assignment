@@ -2,7 +2,7 @@ package org.eugens21.hostaway.technical_assignment.test.filter;
 
 import org.apache.commons.lang3.Range;
 import org.eugens21.hostaway.technical_assignment.model.FilterCriteria;
-import org.eugens21.hostaway.technical_assignment.model.GridItemContent;
+import org.eugens21.hostaway.technical_assignment.model.SearchGridItemContent;
 import org.eugens21.hostaway.technical_assignment.pages.SearchPage;
 import org.eugens21.hostaway.technical_assignment.service.FilterCriteriaActualMapperService;
 import org.eugens21.hostaway.technical_assignment.service.FilterCriteriaExpectedMapperService;
@@ -39,7 +39,7 @@ public class SearchPageGridTest extends AbstractTest {
                 .byCriteria(mapperService.map(criteria))
                 .apply();
 
-        List<GridItemContent> itemsFromGrid = searchPage.grid().items();
+        List<SearchGridItemContent> itemsFromGrid = searchPage.grid().items();
 
         softAssertions.assertThat(itemsFromGrid)
                 .describedAs("Expecting items from grid to be filtered according criteria: <%s>", criteria)

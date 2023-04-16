@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 import org.eugens21.hostaway.technical_assignment.driver.ConfigurableWebDriver;
 import org.eugens21.hostaway.technical_assignment.properties.WebDriverProperties;
 import org.openqa.selenium.Dimension;
@@ -17,6 +18,7 @@ import java.time.Duration;
 import static java.time.temporal.ChronoUnit.SECONDS;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@Slf4j
 public class Chrome implements ConfigurableWebDriver {
 
     @Getter
@@ -26,15 +28,18 @@ public class Chrome implements ConfigurableWebDriver {
 
     @Autowired
     public Chrome(WebDriverProperties properties) {
-        this.driverOptions = new ChromeOptions().addArguments(properties.getCapabilities());
+        log.info("Configure chrome instance with capabilities {}", properties.getCapabilities());
+        this.driverOptions = new ChromeOptions().addArguments(properties.getCapabilities())
+                .addArguments("timeouts", "{implicit:30000}");
         this.webDriverManager = WebDriverManager.chromedriver();
     }
 
     @Override
     public WebDriver get() {
         webDriverManager.setup();
+        log.info("Configure chrome instance with timeouts {}", 10);
         ChromeDriver chromeDriver = new ChromeDriver(driverOptions);
-        chromeDriver.manage().window().setSize(new Dimension(1920, 1080));
+        chromeDriver.manage().window().setSize(new Dimension(1920, 1200));
         chromeDriver.manage().timeouts().implicitlyWait(Duration.of(10, SECONDS));
         chromeDriver.manage().timeouts().pageLoadTimeout(Duration.of(10, SECONDS));
         chromeDriver.manage().timeouts().setScriptTimeout(Duration.of(10, SECONDS));

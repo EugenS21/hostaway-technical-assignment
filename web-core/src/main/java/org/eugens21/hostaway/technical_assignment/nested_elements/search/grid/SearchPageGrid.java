@@ -3,7 +3,7 @@ package org.eugens21.hostaway.technical_assignment.nested_elements.search.grid;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.eugens21.hostaway.technical_assignment.elements.Grid;
-import org.eugens21.hostaway.technical_assignment.model.GridItemContent;
+import org.eugens21.hostaway.technical_assignment.model.SearchGridItemContent;
 import org.eugens21.hostaway.technical_assignment.properties.locators.search_page.SearchPageGridProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class SearchPageGrid implements Grid<GridItemContent> {
+public class SearchPageGrid implements Grid<SearchGridItemContent> {
 
     Supplier<List<SearchPageGridItem>> items;
 
@@ -36,14 +36,14 @@ public class SearchPageGrid implements Grid<GridItemContent> {
     }
 
     @Override
-    public List<GridItemContent> items() {
+    public List<SearchGridItemContent> items() {
         return items.get().stream()
                 .map(SearchPageGridItem::getData)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public void open(GridItemContent item) {
+    public void open(SearchGridItemContent item) {
 
     }
 
