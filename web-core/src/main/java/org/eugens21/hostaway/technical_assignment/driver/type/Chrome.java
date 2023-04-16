@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.experimental.FieldDefaults;
 import org.eugens21.hostaway.technical_assignment.driver.ConfigurableWebDriver;
 import org.eugens21.hostaway.technical_assignment.properties.WebDriverProperties;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -31,6 +32,7 @@ public class Chrome implements ConfigurableWebDriver {
     public WebDriver get() {
         webDriverManager.setup();
         ChromeDriver chromeDriver = new ChromeDriver(driverOptions);
+        chromeDriver.manage().window().setSize(new Dimension(1920, 1080));
         chromeDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         chromeDriver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         chromeDriver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
