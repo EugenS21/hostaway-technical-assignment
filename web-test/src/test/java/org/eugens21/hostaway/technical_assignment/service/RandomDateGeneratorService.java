@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Locale;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @Service
@@ -19,6 +20,14 @@ import java.time.LocalDate;
 public class RandomDateGeneratorService {
 
     Faker faker;
+
+    private RandomDateGeneratorService() {
+        this.faker = new Faker(Locale.ENGLISH);
+    }
+
+    public static RandomDateGeneratorService get() {
+        return new RandomDateGeneratorService();
+    }
 
     private Integer randomDigit() {
         return faker.number().randomDigitNotZero() + 1;
@@ -34,7 +43,7 @@ public class RandomDateGeneratorService {
 
     private Pair<LocalDate, LocalDate> generateDateInterval() {
         LocalDate today = LocalDate.now().plusMonths(faker.number().randomDigit());
-        LocalDate endDate = today.plusDays(faker.number().numberBetween(1, 100));
+        LocalDate endDate = today.plusDays(faker.number().numberBetween(1, 31));
         return Pair.of(today, endDate);
     }
 

@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.Range;
 
+import java.math.BigDecimal;
+
 @Data
 @Builder(toBuilder = true)
 @NoArgsConstructor
@@ -13,7 +15,7 @@ import org.apache.commons.lang3.Range;
 public class FilterCriteria {
 
     @Builder.Default
-    Range<?> price = Range.between(500, 1000);
+    Range<?> price = Range.between(BigDecimal.valueOf(10), BigDecimal.valueOf(1000));
     Integer beds = 0;
     Integer bedrooms = 0;
     Integer bathrooms = 0;

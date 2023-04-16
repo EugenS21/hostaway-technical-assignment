@@ -16,4 +16,8 @@ public class Button extends AbstractWebElement implements IButton {
         getWebElement().click();
     }
 
+    public boolean isEnabled() {
+        return isAccessible();
+    }
+
 }

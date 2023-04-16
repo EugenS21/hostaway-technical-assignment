@@ -105,6 +105,25 @@ pages:
             self: //div[contains(@class,'sc-jHcXXw')]
             clearAll: XPATH@${pages.search.toolbar.filter.popup.commands.self}//b[contains(text(), 'Clear all')]
             apply: XPATH@${pages.search.toolbar.filter.popup.commands.self}//button[contains(span,'Apply')]
+    grid:
+      self: //div[contains(@class,'beqNry')]
+      item:
+        self: //div[contains(@class,'kubHMq')]
+        common: ${pages.search.grid.item.self}[%d]
+        image: XPATH@${pages.search.grid.item.common}//img
+        name: XPATH@${pages.search.grid.item.common}//h3
+        guests: XPATH@${pages.search.grid.item.common}//span[contains(., 'guests')]
+        bedroom: XPATH@${pages.search.grid.item.common}//span[contains(., 'bedroom')]
+        bath: XPATH@${pages.search.grid.item.common}//span[contains(., 'bath')]
+        price: XPATH@${pages.search.grid.item.common}//strong
+        amenities:
+          self: ${pages.search.grid.item.common}//div[contains(@class,'hzsGOz')]//span
+    pagination:
+      self: //div[contains(@style,'user-select')]
+      pages: XPATH@${pages.search.pagination.self}//button[text()]
+      next: XPATH@${pages.search.pagination.self}//button[not(text())][1]
+      previous: XPATH@${pages.search.pagination.self}//button[not(text())][0]
+      page: XPATH@${pages.search.pagination.self}//button[text()=%d]
   listings:
     url: https://kamil-demo.alpinizm.uz/all-listings
 

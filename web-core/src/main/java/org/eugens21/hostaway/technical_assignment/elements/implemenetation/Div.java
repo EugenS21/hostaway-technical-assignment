@@ -15,4 +15,7 @@ public class Div extends AbstractWebElement implements org.eugens21.hostaway.tec
         getWebElement().click();
     }
 
+    public String getText() {
+        return super.getText();
+    }
 }
