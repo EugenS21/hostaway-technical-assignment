@@ -1,15 +1,23 @@
 package org.eugens21.hostaway.technical_assignment.test.filter;
 
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.eugens21.hostaway.technical_assignment.pages.SearchPage;
 import org.junit.jupiter.api.Test;
 
+@Epic("Home Page Verification Epic")
+@Feature("Home Page Search Properties Feature")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class HomePageSearchTest extends AbstractTest {
 
     @Test
+    @Story("User tries to search a property from home page")
+    @Description("As a user I need to be able to search properties by provided criteria")
     public void verifySearchOnHomePage() {
         var criteria = randomDateGeneratorService.generateRandomSearchPropertiesCriteria();
         SearchPage searchPage = homePage.withCriteria(criteria)
