@@ -8,4 +8,6 @@ public interface Input<T> {
 
     T value();
 
+    void clear();
+
 }

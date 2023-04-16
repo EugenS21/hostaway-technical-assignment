@@ -34,4 +34,9 @@ public class NumberInput extends AbstractWebElement implements Input<BigDecimal>
         }
         return new BigDecimal(value);
     }
+
+    @Override
+    public void clear() {
+        getWebElement().clear();
+    }
 }

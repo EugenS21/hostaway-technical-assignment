@@ -1,4 +1,4 @@
-package org.eugens21.hostaway.technical_assignment.nested_elements.search.popup;
+package org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.popup;
 
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.Button;
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.Span;

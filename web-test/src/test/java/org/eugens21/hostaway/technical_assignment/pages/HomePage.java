@@ -1,10 +1,11 @@
 package org.eugens21.hostaway.technical_assignment.pages;
 
+import io.qameta.allure.Step;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.eugens21.hostaway.technical_assignment.configuration.AbstractPageDependencies;
 import org.eugens21.hostaway.technical_assignment.model.SearchPropertiesCriteria;
-import org.eugens21.hostaway.technical_assignment.nested_elements.search.SearchForm;
+import org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.SearchForm;
 import org.eugens21.hostaway.technical_assignment.service.SearchPropertiesMapperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -23,6 +24,7 @@ public class HomePage extends AbstractPage {
         this.searchForm = new SearchForm(pageLocatorProperties, webDriver);
     }
 
+    @Step("On home page")
     public HomePageRedirectOperations withCriteria(SearchPropertiesCriteria searchPropertiesCriteria) {
         searchForm.fill(mapperService.map(searchPropertiesCriteria));
         return new HomePageRedirectOperations();

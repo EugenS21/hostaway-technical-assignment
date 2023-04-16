@@ -1,4 +1,4 @@
-package org.eugens21.hostaway.technical_assignment.nested_elements.search.popup;
+package org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.popup;
 
 import io.qameta.allure.Step;
 import lombok.AccessLevel;
@@ -17,9 +17,9 @@ import java.util.concurrent.CompletableFuture;
 public class SearchPageFilterPopup {
 
     Range price;
-    Toggle beds;
-    Toggle bedRooms;
-    Toggle bathRooms;
+    org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.popup.Toggle beds;
+    org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.popup.Toggle bedRooms;
+    org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.popup.Toggle bathRooms;
     InputCheckBox beachFront;
     InputCheckBox swimmingPool;
     InputCheckBox freeWiFi;
@@ -45,20 +45,21 @@ public class SearchPageFilterPopup {
         this.streetParking = new InputCheckBox(popup.getAmenities().getStreetParking(), webDriver);
         this.suitableForChildren = new InputCheckBox(popup.getAmenities().getSuitableForChildren(), webDriver);
         this.price = new Range(popup.getSpecifications().getPrice(), webDriver);
-        this.beds = new Toggle(popup.getSpecifications().getBeds(), webDriver);
-        this.bedRooms = new Toggle(popup.getSpecifications().getBedrooms(), webDriver);
+        this.beds = new org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.popup.Toggle(popup.getSpecifications().getBeds(), webDriver);
+        this.bedRooms = new org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.popup.Toggle(popup.getSpecifications().getBedrooms(), webDriver);
         this.bathRooms = new Toggle(popup.getSpecifications().getBathrooms(), webDriver);
         this.clearAll = new BoldText(popup.getCommands().getClearAll(), webDriver);
         this.apply = new Button(popup.getCommands().getApply(), webDriver);
     }
 
-    @Step("Filling the pop-up with criteria")
+    @Step("Apply filter criteria to pop-up")
     public SearchPageFilterPopup byCriteria(FilterCriteriaExpectedContent content) {
+        clearAll();
         doInParallel(content).join();
         return this;
     }
 
-    @Step("Reading pop-up content")
+    @Step("Read content of the pop-up")
     public FilterCriteriaActualContent get() {
         return FilterCriteriaActualContent.builder()
                 .price(price.get().range())
@@ -78,12 +79,12 @@ public class SearchPageFilterPopup {
                 .build();
     }
 
-    @Step("Clicking on 'Clear All' button")
+    @Step("Clear content of the pop-up")
     public void clearAll() {
         clearAll.select();
     }
 
-    @Step("Clicking on 'Apply' button")
+    @Step("Apply criteria to filter properties")
     public void apply() {
         apply.click();
     }

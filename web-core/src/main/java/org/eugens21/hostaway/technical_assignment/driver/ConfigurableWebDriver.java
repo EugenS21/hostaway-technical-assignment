@@ -1,9 +1,9 @@
 package org.eugens21.hostaway.technical_assignment.driver;
 
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-public interface ConfigurableWebDriver {
+public interface ConfigurableWebDriver<T extends RemoteWebDriver> {
 
-    WebDriver get();
+    T get();
 
 }

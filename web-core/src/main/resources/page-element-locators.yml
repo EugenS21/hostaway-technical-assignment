@@ -16,8 +16,7 @@ pages:
       previousMonth: XPATH@//button[ancestor::div[contains(@class,'sc-fmdNqN')] and @color='secondary']
       nextMonth: XPATH@//button[ancestor::div[contains(@class,'sc-ljsmAU')]  and @color='secondary']
   header:
-    self: XPATH@//header
-    allListings: XPATH@//nav//a[contains(text(), 'All listings')]
+    allListings: XPATH@//header//nav//a[contains(text(), 'All listings')]
   home:
     url: https://kamil-demo.alpinizm.uz/
     searchForm:
@@ -39,7 +38,7 @@ pages:
   search:
     url: https://kamil-demo.alpinizm.uz/search
     toolbar:
-      self: //div[contains(@class,'sc-kkmGkm')]
+      self: //div[contains(@class,'dWyvcZ')]//div[contains(@class,'sc-kkmGkm')]
       filter:
         button: XPATH@${pages.search.toolbar.self}//button[contains(span,'Filter')]
         popup:
@@ -126,6 +125,20 @@ pages:
       page: XPATH@${pages.search.pagination.self}//button[text()=%d]
   listings:
     url: https://kamil-demo.alpinizm.uz/all-listings
+    grid:
+      self: ${pages.search.grid.self}
+      properties: XPATH@//span[contains(@class,'lkeyLH')]
+      item:
+        self: //div[contains(@class,'wmfak')]
+        common: ${pages.listings.grid.item.self}[%d]
+        image: XPATH@${pages.listings.grid.item.common}//img
+        name: XPATH@${pages.listings.grid.item.common}//h3
+        guests: XPATH@${pages.listings.grid.item.common}//span[contains(., 'guests')]
+        bedroom: XPATH@${pages.listings.grid.item.common}//span[contains(., 'bedroom')]
+        bath: XPATH@${pages.listings.grid.item.common}//span[contains(., 'bath')]
+        price: XPATH@${pages.listings.grid.item.common}//strong
+        amenities:
+          self: ${pages.listings.grid.item.common}//div[contains(@class,'hzsGOz')]//span
 
 
 

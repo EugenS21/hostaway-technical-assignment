@@ -1,5 +1,6 @@
 package org.eugens21.hostaway.technical_assignment.transformer;
 
+import io.vavr.control.Try;
 import org.eugens21.hostaway.technical_assignment.model.MonetaryAmount;
 
 import java.math.BigDecimal;
@@ -24,5 +25,7 @@ public final class StringTransformers {
                 .build();
     };
 
-    public static final Function<String, Integer> getIntegerFromString = (string) -> valueOf(string.trim().replaceAll("[^\\d.]", EMPTY));
+    public static final Function<String, Integer> getIntegerFromString = (string) ->
+            Try.of(() -> valueOf(string.trim().replaceAll("[^\\d.]", EMPTY)))
+                    .getOrElse(0);
 }

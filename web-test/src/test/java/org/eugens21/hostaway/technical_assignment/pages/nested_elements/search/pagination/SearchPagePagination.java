@@ -1,5 +1,6 @@
-package org.eugens21.hostaway.technical_assignment.nested_elements.search.pagination;
+package org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.pagination;
 
+import io.qameta.allure.Step;
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.Button;
 import org.eugens21.hostaway.technical_assignment.exceptions.IllegalPageNumberException;
 import org.eugens21.hostaway.technical_assignment.properties.locators.search_page.SearchPageGridPaginationProperties;
@@ -32,14 +33,17 @@ public class SearchPagePagination {
         return pages.get();
     }
 
+    @Step("Go to next page")
     public void nextPage() {
         next.click();
     }
 
+    @Step("Go to previous page")
     public void previousPage() {
         previous.click();
     }
 
+    @Step("Open page number {0}")
     public void openPage(Integer pageNumber) {
         if (getPages().contains(pageNumber))
             throw new IllegalPageNumberException(String.format("Illegal page number provided %s", pageNumber));
