@@ -14,15 +14,15 @@ public abstract class AbstractFilterContent {
     Integer beds;
     Integer bedrooms;
     Integer bathrooms;
-    Boolean isBeachFront;
-    Boolean isSwimmingPool;
-    Boolean isFreeWiFi;
-    Boolean isKitchen;
-    Boolean isAirConditioning;
-    Boolean isWashingMachine;
-    Boolean isPetsAllowed;
-    Boolean isHotTub;
-    Boolean isStreetParking;
-    Boolean isSuitableForChildren;
+    boolean isBeachFront;
+    boolean isSwimmingPool;
+    boolean isFreeWiFi;
+    boolean isKitchen;
+    boolean isAirConditioning;
+    boolean isWashingMachine;
+    boolean isPetsAllowed;
+    boolean isHotTub;
+    boolean isStreetParking;
+    boolean isSuitableForChildren;
 
 }

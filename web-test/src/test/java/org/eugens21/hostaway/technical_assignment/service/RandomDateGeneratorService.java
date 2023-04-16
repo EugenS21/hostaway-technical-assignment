@@ -55,16 +55,16 @@ public class RandomDateGeneratorService {
 
     public Amenities generateRandomAmenities() {
         return Amenities.builder()
-                .hasAirConditioning(getRandomBoolean())
-                .hasBeachFront(getRandomBoolean())
-                .hasFreeWiFi(getRandomBoolean())
-                .hasHotTub(getRandomBoolean())
-                .hasKitchen(getRandomBoolean())
-                .hasPetsAllowed(getRandomBoolean())
-                .hasStreetParking(getRandomBoolean())
-                .hasSuitableForChildren(getRandomBoolean())
-                .hasSwimmingPool(getRandomBoolean())
-                .hasWashingMachine(getRandomBoolean())
+                .isAirConditioning(getRandomBoolean())
+                .isBeachFront(getRandomBoolean())
+                .isFreeWiFi(getRandomBoolean())
+                .isHotTub(getRandomBoolean())
+                .isKitchen(getRandomBoolean())
+                .isPetsAllowed(getRandomBoolean())
+                .isStreetParking(getRandomBoolean())
+                .isSuitableForChildren(getRandomBoolean())
+                .isSwimmingPool(getRandomBoolean())
+                .isWashingMachine(getRandomBoolean())
                 .build();
     }
 

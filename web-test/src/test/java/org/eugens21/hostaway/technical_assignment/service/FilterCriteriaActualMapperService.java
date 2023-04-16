@@ -25,16 +25,16 @@ public class FilterCriteriaActualMapperService extends AbstractMapperService<Fil
             configurableConditionExpression.map(FilterCriteriaActualContent::getBathrooms, FilterCriteria::setBathrooms);
             configurableConditionExpression.map(FilterCriteriaActualContent::getBedrooms, FilterCriteria::setBedrooms);
             configurableConditionExpression.map(FilterCriteriaActualContent::getBeds, FilterCriteria::setBeds);
-            configurableConditionExpression.<Boolean>map(AbstractFilterContent::getIsAirConditioning, (dest, value) -> dest.getAmenities().setHasAirConditioning(value));
-            configurableConditionExpression.<Boolean>map(AbstractFilterContent::getIsBeachFront, (dest, value) -> dest.getAmenities().setHasBeachFront(value));
-            configurableConditionExpression.<Boolean>map(AbstractFilterContent::getIsFreeWiFi, (dest, value) -> dest.getAmenities().setHasFreeWiFi(value));
-            configurableConditionExpression.<Boolean>map(AbstractFilterContent::getIsKitchen, (dest, value) -> dest.getAmenities().setHasKitchen(value));
-            configurableConditionExpression.<Boolean>map(AbstractFilterContent::getIsHotTub, (dest, value) -> dest.getAmenities().setHasHotTub(value));
-            configurableConditionExpression.<Boolean>map(AbstractFilterContent::getIsPetsAllowed, (dest, value) -> dest.getAmenities().setHasPetsAllowed(value));
-            configurableConditionExpression.<Boolean>map(AbstractFilterContent::getIsStreetParking, (dest, value) -> dest.getAmenities().setHasStreetParking(value));
-            configurableConditionExpression.<Boolean>map(AbstractFilterContent::getIsSuitableForChildren, (dest, value) -> dest.getAmenities().setHasSuitableForChildren(value));
-            configurableConditionExpression.<Boolean>map(AbstractFilterContent::getIsSwimmingPool, (dest, value) -> dest.getAmenities().setHasSwimmingPool(value));
-            configurableConditionExpression.<Boolean>map(AbstractFilterContent::getIsWashingMachine, (dest, value) -> dest.getAmenities().setHasWashingMachine(value));
+            configurableConditionExpression.<Boolean>map(AbstractFilterContent::isAirConditioning, (dest, value) -> dest.getAmenities().setAirConditioning(value));
+            configurableConditionExpression.<Boolean>map(AbstractFilterContent::isBeachFront, (dest, value) -> dest.getAmenities().setBeachFront(value));
+            configurableConditionExpression.<Boolean>map(AbstractFilterContent::isFreeWiFi, (dest, value) -> dest.getAmenities().setFreeWiFi(value));
+            configurableConditionExpression.<Boolean>map(AbstractFilterContent::isKitchen, (dest, value) -> dest.getAmenities().setKitchen(value));
+            configurableConditionExpression.<Boolean>map(AbstractFilterContent::isHotTub, (dest, value) -> dest.getAmenities().setHotTub(value));
+            configurableConditionExpression.<Boolean>map(AbstractFilterContent::isPetsAllowed, (dest, value) -> dest.getAmenities().setPetsAllowed(value));
+            configurableConditionExpression.<Boolean>map(AbstractFilterContent::isStreetParking, (dest, value) -> dest.getAmenities().setStreetParking(value));
+            configurableConditionExpression.<Boolean>map(AbstractFilterContent::isSuitableForChildren, (dest, value) -> dest.getAmenities().setSuitableForChildren(value));
+            configurableConditionExpression.<Boolean>map(AbstractFilterContent::isSwimmingPool, (dest, value) -> dest.getAmenities().setSwimmingPool(value));
+            configurableConditionExpression.<Boolean>map(AbstractFilterContent::isWashingMachine, (dest, value) -> dest.getAmenities().setWashingMachine(value));
         };
     }
 
