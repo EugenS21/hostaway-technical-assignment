@@ -22,16 +22,16 @@ public class FilterCriteriaExpectedMapperService extends AbstractMapperService<F
             configurableConditionExpression.map(FilterCriteria::getBathrooms, FilterCriteriaExpectedContent::setBathrooms);
             configurableConditionExpression.map(FilterCriteria::getBedrooms, FilterCriteriaExpectedContent::setBedrooms);
             configurableConditionExpression.map(FilterCriteria::getBeds, FilterCriteriaExpectedContent::setBeds);
-            configurableConditionExpression.map(src -> src.getAmenities().getHasAirConditioning(), FilterCriteriaExpectedContent::setIsAirConditioning);
-            configurableConditionExpression.map(src -> src.getAmenities().getHasBeachFront(), FilterCriteriaExpectedContent::setIsBeachFront);
-            configurableConditionExpression.map(src -> src.getAmenities().getHasFreeWiFi(), FilterCriteriaExpectedContent::setIsFreeWiFi);
-            configurableConditionExpression.map(src -> src.getAmenities().getHasKitchen(), FilterCriteriaExpectedContent::setIsKitchen);
-            configurableConditionExpression.map(src -> src.getAmenities().getHasHotTub(), FilterCriteriaExpectedContent::setIsHotTub);
-            configurableConditionExpression.map(src -> src.getAmenities().getHasPetsAllowed(), FilterCriteriaExpectedContent::setIsPetsAllowed);
-            configurableConditionExpression.map(src -> src.getAmenities().getHasStreetParking(), FilterCriteriaExpectedContent::setIsStreetParking);
-            configurableConditionExpression.map(src -> src.getAmenities().getHasSuitableForChildren(), FilterCriteriaExpectedContent::setIsSuitableForChildren);
-            configurableConditionExpression.map(src -> src.getAmenities().getHasSwimmingPool(), FilterCriteriaExpectedContent::setIsSwimmingPool);
-            configurableConditionExpression.map(src -> src.getAmenities().getHasWashingMachine(), FilterCriteriaExpectedContent::setIsWashingMachine);
+            configurableConditionExpression.map(src -> src.getAmenities().isAirConditioning(), FilterCriteriaExpectedContent::setAirConditioning);
+            configurableConditionExpression.map(src -> src.getAmenities().isBeachFront(), FilterCriteriaExpectedContent::setBeachFront);
+            configurableConditionExpression.map(src -> src.getAmenities().isFreeWiFi(), FilterCriteriaExpectedContent::setFreeWiFi);
+            configurableConditionExpression.map(src -> src.getAmenities().isKitchen(), FilterCriteriaExpectedContent::setKitchen);
+            configurableConditionExpression.map(src -> src.getAmenities().isHotTub(), FilterCriteriaExpectedContent::setHotTub);
+            configurableConditionExpression.map(src -> src.getAmenities().isPetsAllowed(), FilterCriteriaExpectedContent::setPetsAllowed);
+            configurableConditionExpression.map(src -> src.getAmenities().isStreetParking(), FilterCriteriaExpectedContent::setStreetParking);
+            configurableConditionExpression.map(src -> src.getAmenities().isSuitableForChildren(), FilterCriteriaExpectedContent::setSuitableForChildren);
+            configurableConditionExpression.map(src -> src.getAmenities().isSwimmingPool(), FilterCriteriaExpectedContent::setSwimmingPool);
+            configurableConditionExpression.map(src -> src.getAmenities().isWashingMachine(), FilterCriteriaExpectedContent::setWashingMachine);
         };
     }
 

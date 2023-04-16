@@ -1,5 +1,6 @@
 package org.eugens21.hostaway.technical_assignment.test.filter;
 
+import io.qameta.allure.Step;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import org.assertj.core.api.SoftAssertions;
@@ -38,11 +39,13 @@ public abstract class AbstractTest {
     }
 
     @BeforeEach
+    @Step("Opening main page")
     public void navigateToMainUrl() {
         webDriver.get(mainUrl);
     }
 
     @AfterEach
+    @Step("Closing browser")
     public void doCloseDriver() {
         webDriver.quit();
     }

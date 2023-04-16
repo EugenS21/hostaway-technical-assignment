@@ -11,15 +11,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Amenities {
 
-    Boolean hasBeachFront;
-    Boolean hasSwimmingPool;
-    Boolean hasFreeWiFi;
-    Boolean hasKitchen;
-    Boolean hasAirConditioning;
-    Boolean hasWashingMachine;
-    Boolean hasPetsAllowed;
-    Boolean hasHotTub;
-    Boolean hasStreetParking;
-    Boolean hasSuitableForChildren;
+    boolean isBeachFront;
+    boolean isSwimmingPool;
+    boolean isFreeWiFi;
+    boolean isKitchen;
+    boolean isAirConditioning;
+    boolean isWashingMachine;
+    boolean isPetsAllowed;
+    boolean isHotTub;
+    boolean isStreetParking;
+    boolean isSuitableForChildren;
 
 }
