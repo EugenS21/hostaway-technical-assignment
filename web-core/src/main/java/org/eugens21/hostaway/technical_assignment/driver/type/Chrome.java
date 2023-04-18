@@ -19,7 +19,7 @@ public class Chrome extends AbstractDriver<ChromeDriver, ChromeOptions> {
     public Chrome(WebDriverProperties properties) {
         super(properties);
         this.properties = properties;
-        log.info("Configure chrome instance with capabilities {}", properties.getCapabilities());
+        log.info("Configure chrome instance with properties {}", properties);
     }
 
     @Override

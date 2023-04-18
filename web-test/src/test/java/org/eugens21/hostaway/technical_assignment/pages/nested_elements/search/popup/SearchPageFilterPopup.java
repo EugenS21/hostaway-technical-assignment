@@ -3,6 +3,7 @@ package org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.
 import io.qameta.allure.Step;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.BoldText;
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.Button;
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.InputCheckBox;
@@ -14,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 import java.util.concurrent.CompletableFuture;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@Slf4j
 public class SearchPageFilterPopup {
 
     Range price;
@@ -81,15 +83,18 @@ public class SearchPageFilterPopup {
 
     @Step("Clear content of the pop-up")
     public void clearAll() {
+        log.info("Clicking on 'Clear all' button from filter pop-up");
         clearAll.select();
     }
 
     @Step("Apply criteria to filter properties")
     public void apply() {
+        log.info("Clicking on 'Apply' button from filter pop-up");
         apply.click();
     }
 
     private CompletableFuture<Void> doInParallel(FilterCriteriaExpectedContent content) {
+        log.info("Applying filter {}", content);
         CompletableFuture<Void> bedsFuture = CompletableFuture.runAsync(() -> {
             beds.setValue(content.getBeds());
         });

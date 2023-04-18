@@ -19,7 +19,7 @@ public class Firefox extends AbstractDriver<FirefoxDriver, FirefoxOptions> {
     public Firefox(WebDriverProperties properties) {
         super(properties);
         this.properties = properties;
-        log.info("Configure firefox instance with capabilities {}", properties.getCapabilities());
+        log.info("Configure firefox instance with properties {}", properties);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.popup;
 
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.Button;
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.Span;
 import org.eugens21.hostaway.technical_assignment.exceptions.IllegalToggleValueException;
@@ -11,6 +13,8 @@ import java.util.Objects;
 import static java.lang.String.format;
 import static org.eugens21.hostaway.technical_assignment.constant.ErrorMessageConstants.INVALID_TOGGLE_RANGE_VALUE;
 
+
+@FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class Toggle {
 
     Button increase;

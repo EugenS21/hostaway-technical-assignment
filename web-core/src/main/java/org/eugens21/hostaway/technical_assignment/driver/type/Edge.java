@@ -19,7 +19,7 @@ public class Edge extends AbstractDriver<EdgeDriver, EdgeOptions> {
     public Edge(WebDriverProperties properties) {
         super(properties);
         this.properties = properties;
-        log.info("Configure edge instance with capabilities {}", properties.getCapabilities());
+        log.info("Configure edge instance with properties {}", properties);
     }
 
     @Override
