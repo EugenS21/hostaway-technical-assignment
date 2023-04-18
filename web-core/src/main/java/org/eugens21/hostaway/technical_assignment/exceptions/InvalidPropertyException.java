@@ -4,4 +4,3 @@ import lombok.experimental.StandardException;
 
 @StandardException
 public class InvalidPropertyException extends RuntimeException{}
-

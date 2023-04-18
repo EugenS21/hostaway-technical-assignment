@@ -4,7 +4,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.eugens21.hostaway.technical_assignment.enums.DriverTypeEnum;
+import org.eugens21.hostaway.technical_assignment.properties.driver.WebDriverTimeoutsProperties;
+import org.openqa.selenium.Dimension;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 import java.util.List;
 
@@ -18,6 +21,9 @@ import static org.eugens21.hostaway.technical_assignment.constant.PropertiesCons
 public class WebDriverProperties {
 
     DriverTypeEnum type;
+    Dimension windowSize;
+    @NestedConfigurationProperty
+    WebDriverTimeoutsProperties timeouts;
     List<String> capabilities;
 
 }

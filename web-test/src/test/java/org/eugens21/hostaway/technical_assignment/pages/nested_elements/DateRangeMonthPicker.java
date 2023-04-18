@@ -1,4 +1,4 @@
-package org.eugens21.hostaway.technical_assignment.nested_elements;
+package org.eugens21.hostaway.technical_assignment.pages.nested_elements;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;

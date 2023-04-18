@@ -10,7 +10,7 @@ import java.util.List;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class GridItemContent {
+public class SearchGridItemContent {
 
     @EqualsExclude
     String imageSrc;

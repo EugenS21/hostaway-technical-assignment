@@ -3,12 +3,14 @@ package org.eugens21.hostaway.technical_assignment.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
 @Data
 @SuperBuilder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public abstract class AbstractFilterContent {
 
     Integer beds;

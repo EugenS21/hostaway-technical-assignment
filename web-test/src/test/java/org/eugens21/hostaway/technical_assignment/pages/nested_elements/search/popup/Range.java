@@ -1,4 +1,4 @@
-package org.eugens21.hostaway.technical_assignment.nested_elements.search.popup;
+package org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.popup;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
@@ -38,11 +38,15 @@ public class Range {
             if (Objects.isNull(range))
                 return;
             if (range.getMaximum() instanceof BigDecimal) {
+                from.clear();
                 from.input(((BigDecimal) range.getMinimum()));
+                to.clear();
                 to.input(((BigDecimal) range.getMaximum()));
             } else {
-                from.invalidInput(range.getMinimum().toString());
+                to.clear();
                 to.invalidInput(range.getMaximum().toString());
+                from.clear();
+                from.invalidInput(range.getMinimum().toString());
             }
         }
 

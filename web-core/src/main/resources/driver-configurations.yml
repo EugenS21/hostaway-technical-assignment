@@ -1,5 +1,10 @@
 driver:
   type: chrome
+  windowSize: 1920x1200
+  timeouts:
+    implicit: 10s
+    pageLoad: 10s
+    script: 10s
   capabilities:
     - --remote-allow-origins=*
     - --headless

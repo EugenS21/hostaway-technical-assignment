@@ -8,6 +8,7 @@ import org.apache.commons.lang3.Range;
 @Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true)
 public class FilterCriteriaExpectedContent extends AbstractFilterContent {
 
     Range<?> price;

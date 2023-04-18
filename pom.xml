@@ -33,6 +33,9 @@
         <allure-maven.version>2.12.0</allure-maven.version>
         <httpclient5.version>5.2.1</httpclient5.version>
         <selenium-api.version>4.2.2</selenium-api.version>
+        <aspectj-maven-plugin.version>1.14.0</aspectj-maven-plugin.version>
+        <aspectj.java.version>11</aspectj.java.version>
+        <aspectj.version>1.9.19</aspectj.version>
     </properties>
 
     <dependencies>
@@ -111,16 +114,6 @@
                 <version>${allure-maven.version}</version>
                 <configuration>
                     <reportVersion>${allure-junit5.version}</reportVersion>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                    </argLine>
-                    <forkCount>4</forkCount>
                 </configuration>
             </plugin>
         </plugins>

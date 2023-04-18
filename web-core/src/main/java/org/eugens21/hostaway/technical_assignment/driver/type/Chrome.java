@@ -2,43 +2,43 @@ package org.eugens21.hostaway.technical_assignment.driver.type;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.AccessLevel;
-import lombok.Getter;
 import lombok.experimental.FieldDefaults;
-import org.eugens21.hostaway.technical_assignment.driver.ConfigurableWebDriver;
+import lombok.extern.slf4j.Slf4j;
 import org.eugens21.hostaway.technical_assignment.properties.WebDriverProperties;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.time.Duration;
-
-import static java.time.temporal.ChronoUnit.SECONDS;
-
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
-public class Chrome implements ConfigurableWebDriver {
+@Slf4j
+public class Chrome extends AbstractDriver<ChromeDriver, ChromeOptions> {
 
-    @Getter
-    WebDriverManager webDriverManager;
-    @Getter
-    ChromeOptions driverOptions;
+    WebDriverProperties properties;
 
     @Autowired
     public Chrome(WebDriverProperties properties) {
-        this.driverOptions = new ChromeOptions().addArguments(properties.getCapabilities());
-        this.webDriverManager = WebDriverManager.chromedriver();
+        super(properties);
+        this.properties = properties;
+        log.info("Configure chrome instance with capabilities {}", properties.getCapabilities());
     }
 
     @Override
-    public WebDriver get() {
-        webDriverManager.setup();
-        ChromeDriver chromeDriver = new ChromeDriver(driverOptions);
-        chromeDriver.manage().window().setSize(new Dimension(1920, 1080));
-        chromeDriver.manage().timeouts().implicitlyWait(Duration.of(10, SECONDS));
-        chromeDriver.manage().timeouts().pageLoadTimeout(Duration.of(10, SECONDS));
-        chromeDriver.manage().timeouts().setScriptTimeout(Duration.of(10, SECONDS));
-        return chromeDriver;
+    public ChromeDriver get() {
+        return getConfiguredDriver();
     }
 
+    @Override
+    protected WebDriverManager getDriverManager() {
+        return WebDriverManager.chromedriver();
+    }
+
+    @Override
+    protected ChromeOptions getOptions() {
+        return new ChromeOptions().addArguments(properties.getCapabilities());
+    }
+
+    @Override
+    protected ChromeDriver getDriver() {
+        return new ChromeDriver(getCapabilities());
+    }
 }
