@@ -2,6 +2,7 @@ package org.eugens21.hostaway.technical_assignment.pages.nested_elements;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.Button;
 import org.eugens21.hostaway.technical_assignment.properties.locators.common.DatePickerProperties;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +11,7 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@Slf4j
 public class DateRangePicker {
 
     DateRangeMonthPicker currentMonth;
@@ -42,10 +44,12 @@ public class DateRangePicker {
     }
 
     public void pickStartDate(LocalDate localDate) {
+        log.info("Selecting start date {}", localDate);
         selectDate(localDate, currentMonth);
     }
 
     public void pickEndDate(LocalDate localDate) {
+        log.info("Selecting end date {}", localDate);
         selectDate(localDate, futureMonth);
     }
 

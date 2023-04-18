@@ -2,6 +2,7 @@ package org.eugens21.hostaway.technical_assignment.properties;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import org.eugens21.hostaway.technical_assignment.enums.DriverTypeEnum;
 import org.eugens21.hostaway.technical_assignment.properties.driver.WebDriverTimeoutsProperties;
@@ -18,6 +19,7 @@ import static org.eugens21.hostaway.technical_assignment.constant.PropertiesCons
 @FieldDefaults(level = PRIVATE)
 @NoArgsConstructor
 @ConfigurationProperties(prefix = WEB_DRIVER_CONFIGURATION_ROOT_NODE)
+@ToString
 public class WebDriverProperties {
 
     DriverTypeEnum type;

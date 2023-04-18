@@ -2,6 +2,7 @@ package org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.NumberInput;
 import org.eugens21.hostaway.technical_assignment.properties.locators.search_page.SearchPageToolbarFilterPopupSpecificationsInputRangeProperties;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +15,7 @@ import java.util.Objects;
  * Where from and to represents UI price values
  */
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@Slf4j
 public class Range {
 
     NumberInput from;
@@ -35,6 +37,7 @@ public class Range {
     public class RangeSetter {
 
         public <T> void range(org.apache.commons.lang3.Range<T> range) {
+            log.info("Trying to set range {} ", range);
             if (Objects.isNull(range))
                 return;
             if (range.getMaximum() instanceof BigDecimal) {

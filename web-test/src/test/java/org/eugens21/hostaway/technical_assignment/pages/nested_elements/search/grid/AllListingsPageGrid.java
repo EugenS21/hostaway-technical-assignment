@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import lombok.AccessLevel;
 import lombok.SneakyThrows;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 import org.eugens21.hostaway.technical_assignment.elements.Grid;
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.Span;
 import org.eugens21.hostaway.technical_assignment.model.AllListingsGridItemContent;
@@ -23,6 +24,7 @@ import java.util.stream.Stream;
 import static org.eugens21.hostaway.technical_assignment.transformer.StringTransformers.getIntegerFromString;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@Slf4j
 public class AllListingsPageGrid implements Grid<AllListingsGridItemContent> {
 
     Span properties;
@@ -44,11 +46,12 @@ public class AllListingsPageGrid implements Grid<AllListingsGridItemContent> {
             elements.clear();
             ((JavascriptExecutor) webDriver).executeScript("window.scrollTo(0, document.body.scrollHeight);");
             elements.addAll(findElements.get());
+            log.info("Found {} properties on the grid", elements.size());
             if (elements.size() != findElements.get().size()) {
                 retries = 0;
             }
         }
-
+        log.info("Getting all the properties from grid with max retry of 500");
         return Stream.iterate(1, i -> i + 1)
                 .limit(elements.size())
                 .peek(i -> actions.moveToElement(elements.get(i - 1)).perform())

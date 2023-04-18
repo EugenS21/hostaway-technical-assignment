@@ -3,6 +3,7 @@ package org.eugens21.hostaway.technical_assignment.pages.nested_elements.search;
 import io.qameta.allure.Step;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 import org.eugens21.hostaway.technical_assignment.elements.implemenetation.Button;
 import org.eugens21.hostaway.technical_assignment.model.SearchFormContent;
 import org.eugens21.hostaway.technical_assignment.pages.nested_elements.DateRangePicker;
@@ -10,6 +11,7 @@ import org.eugens21.hostaway.technical_assignment.properties.PageLocatorProperti
 import org.openqa.selenium.WebDriver;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@Slf4j
 public class SearchForm {
 
     Button search;
@@ -26,6 +28,7 @@ public class SearchForm {
 
     @Step("Fill search form with {0} content")
     public void fill(SearchFormContent searchFormContent) {
+        log.info("Searching for properties by criteria {}", searchFormContent);
         checkIn.click();
         dateRangePicker.pickStartDate(searchFormContent.getCheckInDate());
         dateRangePicker.pickEndDate(searchFormContent.getCheckOutDate());

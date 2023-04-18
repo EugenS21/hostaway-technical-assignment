@@ -2,6 +2,7 @@ package org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 import org.eugens21.hostaway.technical_assignment.elements.Grid;
 import org.eugens21.hostaway.technical_assignment.model.SearchGridItemContent;
 import org.eugens21.hostaway.technical_assignment.properties.locators.search_page.SearchPageGridProperties;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
+@Slf4j
 public class SearchPageGrid implements Grid<SearchGridItemContent> {
 
     Supplier<List<org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.grid.SearchPageGridItem>> items;
@@ -27,6 +29,8 @@ public class SearchPageGrid implements Grid<SearchGridItemContent> {
     private List<org.eugens21.hostaway.technical_assignment.pages.nested_elements.search.grid.SearchPageGridItem> doInitItemsList(SearchPageGridProperties grid, WebDriver webDriver) {
         WebElement element = webDriver.findElement(By.xpath(grid.getSelf()));
         List<WebElement> elements = element.findElements(By.xpath(grid.getItem().getSelf()));
+        log.info("Found {} properties on the grid", elements.size());
+        log.info("Getting data of all the properties from the grid");
         return Stream.iterate(1, i -> i + 1)
                 .limit(elements.size())
                 .parallel()
