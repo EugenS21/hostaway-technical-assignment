@@ -72,54 +72,6 @@
                     </argLine>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>aspectj-maven-plugin</artifactId>
-                <version>${aspectj-maven-plugin.version}</version>
-                <configuration>
-                    <sources/>
-                    <testSources/>
-                    <forceAjcCompile>true</forceAjcCompile>
-                    <weaveDirectories>
-                        <weaveDirectory>${project.build.outputDirectory}</weaveDirectory>
-                        <weaveDirectory>${project.build.testOutputDirectory}</weaveDirectory>
-                    </weaveDirectories>
-                    <showWeaveInfo>true</showWeaveInfo>
-                    <source>${aspectj.java.version}</source>
-                    <target>${aspectj.java.version}</target>
-                    <Xlint>ignore</Xlint>
-                    <excludes>
-                        <exclude>**/*.java</exclude>
-                    </excludes>
-                    <complianceLevel>${aspectj.java.version}</complianceLevel>
-                    <encoding>UTF-8</encoding>
-                    <verbose>true</verbose>
-                    <privateScope>true</privateScope>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>compile</id>
-                        <phase>process-classes</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>test-compile</id>
-                        <phase>process-test-classes</phase>
-                        <goals>
-                            <goal>test-compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjtools</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
         </plugins>
     </build>
 
