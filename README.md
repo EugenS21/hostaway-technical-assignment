@@ -41,7 +41,7 @@ To run tests execute the following command from the root level of the project:
 ## Github Results
 
 The project was configured to run the above command on each PR creation.
-You can check the last execution status [here](https://eugens21.github.io/hostaway-technical-assignment/30/).
+You can check the last execution status [here](https://eugens21.github.io/hostaway-technical-assignment/34/).
 
 ## Results
 
@@ -50,5 +50,6 @@ To generate a testing report use:
 `mvn allure:aggregate`
 
 The command from bellow will aggregate all the reports from ui and api module into a single one available
-inside [allure-report](./allure-report) directory. Open [index.html](./allure-report/index.html) in any browser to view
+inside [allure-report](./target/site/allure-maven-plugin) directory.
+Open [index.html](./target/site/allure-maven-plugin/index.html) in any browser to view
 the report.

@@ -70,6 +70,9 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${project.basedir}/src/test/resources/hostaway_suite.xml</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>

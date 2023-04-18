@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Hostaway Suite">
+    <test thread-count="5" name="Hostaway Suite Tests">
+        <classes>
+            <class name="org.eugens21.hostaway.technical_assignment.test.filter.SearchPageFilterTest"/>
+            <class name="org.eugens21.hostaway.technical_assignment.test.filter.SearchPageGridTest"/>
+            <class name="org.eugens21.hostaway.technical_assignment.test.filter.AllListingsPageTest"/>
+            <class name="org.eugens21.hostaway.technical_assignment.test.filter.HomePageSearchTest"/>
+        </classes>
+    </test>
+</suite>
