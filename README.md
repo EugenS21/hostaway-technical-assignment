@@ -20,9 +20,9 @@ or TestNG (without Cucumber) which will do the following:
 
 Before you can use the framework, you will need to install the following software:
 
-* **Java 11**: The Project is built on Java 17, so you will need to install this version of Java or a more recent
+* **Java 11**: The Project is built on Java 11, so you will need to install this version of Java or a more recent
   version in order to run the project. You can download it from the official Java
-  website: https://www.oracle.com/java/technologies/downloads/#java17
+  website: https://www.oracle.com/java/technologies/downloads/#java11
 * **Maven 3.6.3**: My Project is built using Maven, so you will need to install this version of Maven or a more recent
   version in order to build and run the project. You can download it from the official Maven
   website: https://maven.apache.org/download.cgi
