@@ -18,7 +18,7 @@ or TestNG (without Cucumber) which will do the following:
 
 ## Prerequisites
 
-Before you can use My the framework, you will need to install the following software:
+Before you can use the framework, you will need to install the following software:
 
 * **Java 11**: The Project is built on Java 17, so you will need to install this version of Java or a more recent
   version in order to run the project. You can download it from the official Java
